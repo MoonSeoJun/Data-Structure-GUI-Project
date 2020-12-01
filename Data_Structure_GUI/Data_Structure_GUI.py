@@ -5,12 +5,10 @@ from PyQt5.QtWidgets import *
 from GUI_for_Data_Structure import *
 from LinkedList import *
 from Stack import *
-from Tree import *
-from Tree import bst
-from functools import partial 
+from Queue import *
+from BST import *
 
-stack_index_num = 0
-tree_index_num = 0
+from functools import partial 
 
 class main(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
@@ -45,31 +43,251 @@ class main(QtWidgets.QMainWindow, Ui_MainWindow):
         self.Tree_delete_button.clicked.connect(self.Tree_delete_app)
 
         #Queue Page
+        self.Queue_insert_button.clicked.connect(self.Queue_enqueue_app)
+        self.Queue_delete_button.clicked.connect(self.Queue_dequeue_app)
 
         #Quit Button
         self.quit_button.clicked.connect(self.close_app)
 
+    def Queue_enqueue_app(self):
+        global queue_index_num
+
+        if self.Queue_insert_Edit.text() == '':
+            return False
+
+        queue_enqueue_node = str(self.Queue_insert_Edit.text())
+        queue_list.queue_put(queue_enqueue_node)
+        self.Queue_insert_Edit.clear()
+
+        queue_index_num = 0
+
+        if queue_index_num == 0:
+            self.queue_node_1.setText(queue_list.print_queue(queue_index_num))
+
+            queue_index_num += 1
+
+        if queue_index_num == 1:
+            self.queue_node_2.setText(queue_list.print_queue(queue_index_num))
+            queue_index_num += 1
+
+        if queue_index_num == 2:    
+            self.queue_node_3.setText(queue_list.print_queue(queue_index_num))
+            queue_index_num += 1
+
+        if queue_index_num == 3:
+            self.queue_node_4.setText(queue_list.print_queue(queue_index_num))
+            queue_index_num += 1
+
+        if queue_index_num == 4:
+            self.queue_node_5.setText(queue_list.print_queue(queue_index_num))
+            queue_index_num += 1
+
+        if queue_index_num == 5:
+            self.queue_node_6.setText(queue_list.print_queue(queue_index_num))
+            queue_index_num += 1
+
+        if queue_index_num == 6:
+            self.queue_node_7.setText(queue_list.print_queue(queue_index_num))
+
+        if self.queue_node_7.text():
+            self.Queue_checking.setText("Queue Overflow")
+            self.Queue_checking.setStyleSheet("color: black;"
+                                          "background-color: #aa6919;")
+
+        elif self.queue_node_1.text() != '' and self.stack_node_7.text() == '':
+            self.Queue_checking.setText("None")
+            self.Queue_checking.setStyleSheet("color: white;"
+                                        "background-color: #00ffff;")
+
+
+    def Queue_dequeue_app(self):
+        global queue_index_num
+
+        queue_list.queue_pop()
+
+        queue_index_num = 0
+
+        if queue_index_num == 0:
+            self.queue_node_1.setText(queue_list.print_queue(queue_index_num))
+            queue_index_num += 1
+
+        if queue_index_num == 1:
+            self.queue_node_2.setText(queue_list.print_queue(queue_index_num))
+            queue_index_num += 1
+
+        if queue_index_num == 2:    
+            self.queue_node_3.setText(queue_list.print_queue(queue_index_num))
+            queue_index_num += 1
+
+        if queue_index_num == 3:
+            self.queue_node_4.setText(queue_list.print_queue(queue_index_num))
+            queue_index_num += 1
+
+        if queue_index_num == 4:
+            self.queue_node_5.setText(queue_list.print_queue(queue_index_num))
+            queue_index_num += 1
+
+        if queue_index_num == 5:
+            self.queue_node_6.setText(queue_list.print_queue(queue_index_num))
+            queue_index_num += 1
+
+        if queue_index_num == 6:
+            self.queue_node_7.setText(queue_list.print_queue(queue_index_num))
+
+        if self.queue_node_1.text() == '':
+            self.Queue_checking.clear()
+            self.Queue_checking.setText("Queue underflow")
+            self.Queue_checking.setStyleSheet("color: white;"
+                                        "background-color: #aaff7f;")
+            return False
+
+        elif self.queue_node_1.text() != '' and self.queue_node_7.text() == '':
+            self.Queue_checking.setText("None")
+            self.Queue_checking.setStyleSheet("color: white;"
+                                        "background-color: #00ffff;")
+
     def Tree_insert_app(self):
-        Tree_insert_node = self.Tree_insert_Edit.text()
+        global tree_index_num
+
+        GUI_tree_list = []
 
         if self.Tree_insert_Edit.text() == '':
             return False
-        elif Tree_insert_node.isalpha():
-            return False
 
-        bst.insert(Tree_insert_node)
+        Tree_insert_node = int(self.Tree_insert_Edit.text())
+
+        bt.add(Tree_insert_node)
+        GUI_tree_list = re_positioning()
+        print()
         self.Tree_insert_Edit.clear()
 
-        
+        tree_index_num = 0
+
+        self.Tree_node_1.setText(str(GUI_tree_list[tree_index_num]))
+        tree_index_num += 1
+
+        self.Tree_node_2.setText(str(GUI_tree_list[tree_index_num]))
+        tree_index_num += 1
+
+        self.Tree_node_3.setText(str(GUI_tree_list[tree_index_num]))
+        tree_index_num += 1
+
+        self.Tree_node_4.setText(str(GUI_tree_list[tree_index_num]))
+        tree_index_num += 1
+
+        self.Tree_node_5.setText(str(GUI_tree_list[tree_index_num]))
+        tree_index_num += 1
+
+        self.Tree_node_6.setText(str(GUI_tree_list[tree_index_num]))
+        tree_index_num += 1
+
+        self.Tree_node_7.setText(str(GUI_tree_list[tree_index_num]))
+        tree_index_num += 1
+
+        self.Tree_node_8.setText(str(GUI_tree_list[tree_index_num]))
+        tree_index_num += 1
+
+        self.Tree_node_9.setText(str(GUI_tree_list[tree_index_num]))
+        tree_index_num += 1
+
+        self.Tree_node_10.setText(str(GUI_tree_list[tree_index_num]))
+        tree_index_num += 1
+
+        self.Tree_node_11.setText(str(GUI_tree_list[tree_index_num]))
+        tree_index_num += 1
+
+        self.Tree_node_12.setText(str(GUI_tree_list[tree_index_num]))
+        tree_index_num += 1
+
+        self.Tree_node_13.setText(str(GUI_tree_list[tree_index_num]))
+        tree_index_num += 1
+
+        self.Tree_node_14.setText(str(GUI_tree_list[tree_index_num]))
+        tree_index_num += 1
+
+        self.Tree_node_15.setText(str(GUI_tree_list[tree_index_num]))
+        tree_index_num += 1
+
         
 
     def Tree_delete_app(self):
-        Tree_delete_node = self.Tree_delete_Edit.text()
+        global tree_index_num, tree_array
+
+        GUI_tree_list = []
 
         if self.Tree_delete_Edit.text() == '':
             return False
-        elif Tree_delete_node.isalpha():
-            return False
+
+        Tree_delete_node = int(self.Tree_delete_Edit.text())
+
+        bt.remove(Tree_delete_node)
+        re_positioning()
+        GUI_tree_list = re_positioning()
+        self.Tree_delete_Edit.clear()
+
+        tree_index_num = 0
+
+        self.Tree_node_1.clear()
+        self.Tree_node_1.setText(str(GUI_tree_list[tree_index_num]))
+        tree_index_num += 1
+
+        self.Tree_node_2.clear()
+        self.Tree_node_2.setText(str(GUI_tree_list[tree_index_num]))
+        tree_index_num += 1
+
+        self.Tree_node_3.clear()
+        self.Tree_node_3.setText(str(GUI_tree_list[tree_index_num]))
+        tree_index_num += 1
+
+        self.Tree_node_4.clear()
+        self.Tree_node_4.setText(str(GUI_tree_list[tree_index_num]))
+        tree_index_num += 1
+
+        self.Tree_node_5.clear()
+        self.Tree_node_5.setText(str(GUI_tree_list[tree_index_num]))
+        tree_index_num += 1
+
+        self.Tree_node_6.clear()
+        self.Tree_node_6.setText(str(GUI_tree_list[tree_index_num]))
+        tree_index_num += 1
+
+        self.Tree_node_7.clear()
+        self.Tree_node_7.setText(str(GUI_tree_list[tree_index_num]))
+        tree_index_num += 1
+
+        self.Tree_node_8.clear()
+        self.Tree_node_8.setText(str(GUI_tree_list[tree_index_num]))
+        tree_index_num += 1
+
+        self.Tree_node_9.clear()
+        self.Tree_node_9.setText(str(GUI_tree_list[tree_index_num]))
+        tree_index_num += 1
+
+        self.Tree_node_10.clear()
+        self.Tree_node_10.setText(str(GUI_tree_list[tree_index_num]))
+        tree_index_num += 1
+
+        self.Tree_node_11.clear()
+        self.Tree_node_11.setText(str(GUI_tree_list[tree_index_num]))
+        tree_index_num += 1
+
+        self.Tree_node_12.clear()
+        self.Tree_node_12.setText(str(GUI_tree_list[tree_index_num]))
+        tree_index_num += 1
+
+        self.Tree_node_13.clear()
+        self.Tree_node_13.setText(str(GUI_tree_list[tree_index_num]))
+        tree_index_num += 1
+
+        self.Tree_node_14.clear()
+        self.Tree_node_14.setText(str(GUI_tree_list[tree_index_num]))
+        tree_index_num += 1
+
+        self.Tree_node_15.clear()
+        self.Tree_node_15.setText(str(GUI_tree_list[tree_index_num]))
+        tree_index_num += 1
+
+
 
 
     def Stack_insert_app(self):
@@ -79,11 +297,11 @@ class main(QtWidgets.QMainWindow, Ui_MainWindow):
         if self.Stack_Push_Edit.text() == '':
             return False
         
-        stack_push(push_stack_node)
+        stack_list.stack_push(push_stack_node)
         self.Stack_Push_Edit.clear()
         
         if stack_index_num == 0:
-            self.stack_node_1.setText(print_stack(stack_index_num))
+            self.stack_node_1.setText(stack_list.print_stack(stack_index_num))
             self.stack_node_1.setStyleSheet("color : black;"
                                             "background-color: #ffcf5d;"
                                             "border: 2px solid black;")
@@ -91,7 +309,7 @@ class main(QtWidgets.QMainWindow, Ui_MainWindow):
             stack_index_num += 1
 
         elif stack_index_num == 1:
-            self.stack_node_2.setText(print_stack(stack_index_num))
+            self.stack_node_2.setText(stack_list.print_stack(stack_index_num))
             self.stack_node_2.setStyleSheet("color : black;"
                                             "background-color: #ff8239;"
                                             "border: 2px solid black;")
@@ -99,7 +317,7 @@ class main(QtWidgets.QMainWindow, Ui_MainWindow):
             stack_index_num += 1
 
         elif stack_index_num == 2:
-            self.stack_node_3.setText(print_stack(stack_index_num))
+            self.stack_node_3.setText(stack_list.print_stack(stack_index_num))
             self.stack_node_3.setStyleSheet("color : black;"
                                             "background-color: #e20000;"
                                             "border: 2px solid black;")
@@ -107,7 +325,7 @@ class main(QtWidgets.QMainWindow, Ui_MainWindow):
             stack_index_num += 1
 
         elif stack_index_num == 3:
-            self.stack_node_4.setText(print_stack(stack_index_num))
+            self.stack_node_4.setText(stack_list.print_stack(stack_index_num))
             self.stack_node_4.setStyleSheet("color : black;"
                                             "background-color: #d50000;"
                                             "border: 2px solid black;")
@@ -115,7 +333,7 @@ class main(QtWidgets.QMainWindow, Ui_MainWindow):
             stack_index_num += 1
         
         elif stack_index_num == 4:
-            self.stack_node_5.setText(print_stack(stack_index_num))
+            self.stack_node_5.setText(stack_list.print_stack(stack_index_num))
             self.stack_node_5.setStyleSheet("color : black;"
                                             "background-color: #c30000;"
                                             "border: 2px solid black;")
@@ -123,7 +341,7 @@ class main(QtWidgets.QMainWindow, Ui_MainWindow):
             stack_index_num += 1
 
         elif stack_index_num == 5:
-            self.stack_node_6.setText(print_stack(stack_index_num))
+            self.stack_node_6.setText(stack_list.print_stack(stack_index_num))
             self.stack_node_6.setStyleSheet("color : black;"
                                             "background-color: #aa0000;"
                                             "border: 2px solid black;")
@@ -131,7 +349,7 @@ class main(QtWidgets.QMainWindow, Ui_MainWindow):
             stack_index_num += 1
 
         elif stack_index_num == 6:
-            self.stack_node_7.setText(print_stack(stack_index_num))
+            self.stack_node_7.setText(stack_list.print_stack(stack_index_num))
             self.stack_node_7.setStyleSheet("color : black;"
                                             "background-color: #a30000;"
                                             "border: 2px solid black;")
@@ -153,49 +371,48 @@ class main(QtWidgets.QMainWindow, Ui_MainWindow):
             self.Stack_check.setStyleSheet("color: white;"
                                         "background-color: #00ffff;")
         
-        
 
     def Stack_delete_app(self):
         global stack_index_num
 
         if stack_index_num == 1:
-            stack_pop()
+            stack_list.stack_pop()
             self.stack_node_1.clear()
             self.stack_node_1.setStyleSheet("background-color: #ffffff;")
             stack_index_num -= 1
 
         elif stack_index_num == 2:
-            stack_pop()
+            stack_list.stack_pop()
             self.stack_node_2.clear()
             self.stack_node_2.setStyleSheet("background-color: #ffffff;")
             stack_index_num -= 1
         
         elif stack_index_num == 3:
-            stack_pop()
+            stack_list.stack_pop()
             self.stack_node_3.clear()
             self.stack_node_3.setStyleSheet("background-color: #ffffff;")
             stack_index_num -= 1
         
         elif stack_index_num == 4:
-            stack_pop()
+            stack_list.stack_pop()
             self.stack_node_4.clear()
             self.stack_node_4.setStyleSheet("background-color: #ffffff;")
             stack_index_num -= 1
 
         elif stack_index_num == 5:
-            stack_pop()
+            stack_list.stack_pop()
             self.stack_node_5.clear()
             self.stack_node_5.setStyleSheet("background-color: #ffffff;")
             stack_index_num -= 1
 
         elif stack_index_num == 6:
-            stack_pop()
+            stack_list.stack_pop()
             self.stack_node_6.clear()
             self.stack_node_6.setStyleSheet("background-color: #ffffff;")
             stack_index_num -= 1
 
         elif stack_index_num == 7:
-            stack_pop()
+            stack_list.stack_pop()
             self.stack_node_7.clear()
             self.stack_node_7.setStyleSheet("background-color: #ffffff;")
             stack_index_num -= 1
@@ -245,20 +462,29 @@ class main(QtWidgets.QMainWindow, Ui_MainWindow):
     def close_app(self):
         print('close_app')
         reset_linkedlist()
-        reset_stack()
+        stack_list.reset_stack()
+        queue_list.reset_queue()
+        
         sys.exit()
 
 
 if __name__ == "__main__":
-      import sys
-      init_list()
-      app = QtWidgets.QApplication(sys.argv)
-      MainWindow = QtWidgets.QMainWindow()
-      ui = main()
-      ui.setupUi(MainWindow)
+    import sys
 
-      ui.setupUi(MainWindow)
-      ui.menu()
+    stack_index_num = 0
+    tree_index_num = 0
+    queue_index_num = 0
 
-      MainWindow.show()
-      sys.exit(app.exec_())
+    GUI_tree_list = []
+      
+    init_list()
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = main()
+    ui.setupUi(MainWindow)
+
+    ui.setupUi(MainWindow)
+    ui.menu()
+
+    MainWindow.show()
+    sys.exit(app.exec_())

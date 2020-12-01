@@ -111,7 +111,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="LinkedList_page">
      <widget class="QPushButton" name="pushButton">
@@ -529,9 +529,9 @@
       <property name="geometry">
        <rect>
         <x>-30</x>
-        <y>0</y>
+        <y>-20</y>
         <width>971</width>
-        <height>641</height>
+        <height>661</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -560,7 +560,7 @@
        <string notr="true">background-color: rgb(85, 255, 127);</string>
       </property>
       <property name="text">
-       <string>Tree</string>
+       <string>Binary Search Tree</string>
       </property>
      </widget>
      <widget class="QScrollArea" name="scrollArea_3">
@@ -635,6 +635,8 @@
         <property name="font">
          <font>
           <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
          </font>
         </property>
         <property name="text">
@@ -655,7 +657,9 @@
         </property>
         <property name="font">
          <font>
-          <pointsize>7</pointsize>
+          <pointsize>8</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
          </font>
         </property>
         <property name="text">
@@ -677,6 +681,8 @@
         <property name="font">
          <font>
           <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
          </font>
         </property>
         <property name="text">
@@ -698,6 +704,8 @@
         <property name="font">
          <font>
           <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
          </font>
         </property>
         <property name="text">
@@ -719,6 +727,8 @@
         <property name="font">
          <font>
           <pointsize>13</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
          </font>
         </property>
         <property name="text">
@@ -740,6 +750,8 @@
         <property name="font">
          <font>
           <pointsize>13</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
          </font>
         </property>
         <property name="text">
@@ -753,7 +765,7 @@
         <property name="geometry">
          <rect>
           <x>520</x>
-          <y>280</y>
+          <y>290</y>
           <width>61</width>
           <height>51</height>
          </rect>
@@ -761,6 +773,8 @@
         <property name="font">
          <font>
           <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
          </font>
         </property>
         <property name="text">
@@ -781,7 +795,9 @@
         </property>
         <property name="font">
          <font>
-          <pointsize>7</pointsize>
+          <pointsize>8</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
          </font>
         </property>
         <property name="text">
@@ -802,7 +818,9 @@
         </property>
         <property name="font">
          <font>
-          <pointsize>7</pointsize>
+          <pointsize>8</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
          </font>
         </property>
         <property name="text">
@@ -823,7 +841,9 @@
         </property>
         <property name="font">
          <font>
-          <pointsize>7</pointsize>
+          <pointsize>8</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
          </font>
         </property>
         <property name="text">
@@ -844,7 +864,9 @@
         </property>
         <property name="font">
          <font>
-          <pointsize>7</pointsize>
+          <pointsize>8</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
          </font>
         </property>
         <property name="text">
@@ -865,7 +887,9 @@
         </property>
         <property name="font">
          <font>
-          <pointsize>7</pointsize>
+          <pointsize>8</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
          </font>
         </property>
         <property name="text">
@@ -886,7 +910,9 @@
         </property>
         <property name="font">
          <font>
-          <pointsize>7</pointsize>
+          <pointsize>8</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
          </font>
         </property>
         <property name="text">
@@ -907,7 +933,9 @@
         </property>
         <property name="font">
          <font>
-          <pointsize>7</pointsize>
+          <pointsize>8</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
          </font>
         </property>
         <property name="text">
@@ -1062,14 +1090,25 @@
        <string>DeQueue</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="Queue_delete_Edit">
+     <widget class="QLineEdit" name="Queue_checking">
       <property name="geometry">
        <rect>
-        <x>760</x>
+        <x>750</x>
         <y>390</y>
-        <width>101</width>
-        <height>31</height>
+        <width>121</width>
+        <height>41</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gill Sans MT</family>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
      <widget class="QPushButton" name="Queue_explain">
@@ -1117,16 +1156,140 @@
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_4">
         <item>
-         <widget class="QLabel" name="Queue_node_label">
-          <property name="font">
-           <font>
-            <pointsize>20</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QLabel" name="queue_node_7">
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>16</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="layoutDirection">
+             <enum>Qt::LeftToRight</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="queue_node_6">
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>16</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="queue_node_5">
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>16</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="queue_node_4">
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>16</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="queue_node_3">
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>16</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="queue_node_2">
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>16</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="queue_node_1">
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>16</pointsize>
+              <weight>75</weight>
+              <italic>false</italic>
+              <bold>true</bold>
+              <underline>false</underline>
+              <strikeout>false</strikeout>
+             </font>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
        </layout>
       </widget>
@@ -1151,6 +1314,22 @@
       </property>
       <property name="text">
        <string>Queue</string>
+      </property>
+     </widget>
+     <widget class="QFrame" name="frame_2">
+      <property name="geometry">
+       <rect>
+        <x>730</x>
+        <y>360</y>
+        <width>161</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
       </property>
      </widget>
     </widget>

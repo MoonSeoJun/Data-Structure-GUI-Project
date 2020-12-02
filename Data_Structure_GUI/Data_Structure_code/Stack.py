@@ -1,15 +1,19 @@
-stack = []
+class ListStack(object):
+    def __init__(self):
+        self.stack = []
 
-def stack_push(item):
-    stack.append(item)
+    def stack_push(self,item):
+        self.stack.append(item)
 
-def print_stack(num):
-    return stack[num]
+    def print_stack(self,num):
+        return self.stack[num]
     
-def stack_pop():
-    return stack.pop()
+    def stack_pop(self):
+        return self.stack.pop()
 
-def reset_stack():
-    while stack:
-        stack_pop()
-        print(stack)
+    def reset_stack(self):
+        while self.stack:
+            print(self.stack)
+            self.stack_pop()
+            
+stack_list = ListStack()

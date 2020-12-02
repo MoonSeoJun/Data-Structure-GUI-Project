@@ -63,31 +63,58 @@ class main(QtWidgets.QMainWindow, Ui_MainWindow):
 
         if queue_index_num == 0:
             self.queue_node_1.setText(queue_list.print_queue(queue_index_num))
-
+            if queue_list.print_queue(queue_index_num) != '':
+                self.queue_node_1.setStyleSheet("color : black;"
+                                            "background-color: #ffcf5d;"
+                                            "border: 2px solid black;")
             queue_index_num += 1
 
         if queue_index_num == 1:
             self.queue_node_2.setText(queue_list.print_queue(queue_index_num))
+            if queue_list.print_queue(queue_index_num) != '':
+                self.queue_node_2.setStyleSheet("color : black;"
+                                            "background-color: #ff8239;"
+                                            "border: 2px solid black;")
             queue_index_num += 1
 
         if queue_index_num == 2:    
             self.queue_node_3.setText(queue_list.print_queue(queue_index_num))
+            if queue_list.print_queue(queue_index_num) != '':
+                self.queue_node_3.setStyleSheet("color : black;"
+                                            "background-color: #e20000;"
+                                            "border: 2px solid black;")
             queue_index_num += 1
 
         if queue_index_num == 3:
             self.queue_node_4.setText(queue_list.print_queue(queue_index_num))
+            if queue_list.print_queue(queue_index_num) != '':
+                self.queue_node_4.setStyleSheet("color : black;"
+                                            "background-color: #d50000;"
+                                            "border: 2px solid black;")
             queue_index_num += 1
 
         if queue_index_num == 4:
             self.queue_node_5.setText(queue_list.print_queue(queue_index_num))
+            if queue_list.print_queue(queue_index_num) != '':
+                self.queue_node_5.setStyleSheet("color : black;"
+                                            "background-color: #c30000;"
+                                            "border: 2px solid black;")
             queue_index_num += 1
 
         if queue_index_num == 5:
             self.queue_node_6.setText(queue_list.print_queue(queue_index_num))
+            if queue_list.print_queue(queue_index_num) != '':
+                self.queue_node_6.setStyleSheet("color : black;"
+                                            "background-color: #aa0000;"
+                                            "border: 2px solid black;")
             queue_index_num += 1
 
         if queue_index_num == 6:
             self.queue_node_7.setText(queue_list.print_queue(queue_index_num))
+            if queue_list.print_queue(queue_index_num) != '':
+                self.queue_node_7.setStyleSheet("color : black;"
+                                            "background-color: #a30000;"
+                                            "border: 2px solid black;")
 
         if self.queue_node_7.text():
             self.Queue_checking.setText("Queue Overflow")
@@ -109,30 +136,51 @@ class main(QtWidgets.QMainWindow, Ui_MainWindow):
 
         if queue_index_num == 0:
             self.queue_node_1.setText(queue_list.print_queue(queue_index_num))
+            if queue_list.print_queue(queue_index_num) == '':
+                self.queue_node_1.clear()
+                self.queue_node_1.setStyleSheet("background-color: #ffffff;")
             queue_index_num += 1
 
         if queue_index_num == 1:
             self.queue_node_2.setText(queue_list.print_queue(queue_index_num))
+            if queue_list.print_queue(queue_index_num) == '':
+                self.queue_node_2.clear()
+                self.queue_node_2.setStyleSheet("background-color: #ffffff;")
             queue_index_num += 1
 
         if queue_index_num == 2:    
             self.queue_node_3.setText(queue_list.print_queue(queue_index_num))
+            if queue_list.print_queue(queue_index_num) == '':
+                self.queue_node_3.clear()
+                self.queue_node_3.setStyleSheet("background-color: #ffffff;")
             queue_index_num += 1
 
         if queue_index_num == 3:
             self.queue_node_4.setText(queue_list.print_queue(queue_index_num))
+            if queue_list.print_queue(queue_index_num) == '':
+                self.queue_node_4.clear()
+                self.queue_node_4.setStyleSheet("background-color: #ffffff;")
             queue_index_num += 1
 
         if queue_index_num == 4:
             self.queue_node_5.setText(queue_list.print_queue(queue_index_num))
+            if queue_list.print_queue(queue_index_num) == '':
+                self.queue_node_5.clear()
+                self.queue_node_5.setStyleSheet("background-color: #ffffff;")
             queue_index_num += 1
 
         if queue_index_num == 5:
             self.queue_node_6.setText(queue_list.print_queue(queue_index_num))
+            if queue_list.print_queue(queue_index_num) == '':
+                self.queue_node_6.clear()
+                self.queue_node_6.setStyleSheet("background-color: #ffffff;")
             queue_index_num += 1
 
         if queue_index_num == 6:
             self.queue_node_7.setText(queue_list.print_queue(queue_index_num))
+            if queue_list.print_queue(queue_index_num) == '':
+                self.queue_node_7.clear()
+                self.queue_node_7.setStyleSheet("background-color: #ffffff;")
 
         if self.queue_node_1.text() == '':
             self.Queue_checking.clear()

@@ -19,6 +19,10 @@ class BinaryTree:
     # 값 추가하기 head가 없을 경우
     def add(self, item):
 
+        for i in tree_array:
+            if i == item:
+                return False
+
         array.append(item)
 
         if self.head.val is None:

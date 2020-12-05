@@ -5,9 +5,7 @@ class Node:
 
 def init_list():
     global node_A
-
     node_A = Node("HEAD")
-
     node_A.next = None
 
 

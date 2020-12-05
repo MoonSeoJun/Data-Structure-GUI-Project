@@ -24,4 +24,3 @@ class ListQueue(object):
 queue_list = ListQueue()
 
 index_num = 0
-

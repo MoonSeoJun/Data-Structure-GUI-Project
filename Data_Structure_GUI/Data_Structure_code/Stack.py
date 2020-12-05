@@ -17,3 +17,4 @@ class ListStack(object):
             self.stack_pop()
             
 stack_list = ListStack()
+

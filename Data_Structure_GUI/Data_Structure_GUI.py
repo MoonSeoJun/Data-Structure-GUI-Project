@@ -24,7 +24,16 @@ class main(QtWidgets.QMainWindow, Ui_MainWindow):
                 mainButton.clicked.connect(partial(self.stackedWidget.setCurrentIndex, i))
 
         #Linked List Explain Button
-        self.LinkedList_explan.setToolTip("연결 리스트, 링크드 리스트는 각 노드가 데이터와 포인터를 가지고 한 줄로 연결되어 있는 방식으로 데이터를 저장하는 자료 구조이다.\nINSERT에 수/문자를 입력하면 마지막 노드로 추가된다.\nDELETE에 지우고 싶은 수/문자를 입력하면 삭제된다.")
+        self.LinkedList_explain.setToolTip("연결 리스트, 링크드 리스트는 각 노드가 데이터와 포인터를 가지고 한 줄로 연결되어 있는 방식으로 데이터를 저장하는 자료 구조이다.\nINSERT에 수/문자를 입력하면 마지막 노드로 추가된다.\nDELETE에 지우고 싶은 수/문자를 입력하면 삭제된다.")
+
+        #Stack Explain Button
+        self.Stack_explain.setToolTip("스택은 가장 나중에 들어온 값이 먼저 나가는 자료구조이다.\nPush에 수/문자를 입력하면 스택의 가장 위에 값이 저장된다.\nPop 버튼을 클릭하면 스택의 가장 위 값이 삭제된다.\n이 스택은 최대 7개의 값을 저장할 수 있다.\n스택이 가득차면 Overflow, 비어있으면 Underflow 상태라고 함.")
+
+        #BinarySearchTree Explain Button
+        self.Tree_explain.setToolTip("이진탐색트리는 키값의 왼쪽에 작은 값, 오른쪽에 큰 값을 저장하여 빠른 탐색이 가능하도록 하는 트리다.\n사용법 >> Insert에 삽입하고 싶은 << 숫자 >>를 입력하거나, Delete에 삭제하고 싶은 << 숫자 >>를 입력한다\n<< 문자 >>를 입력할 시 오류가 발생할 수 있다.")
+
+        #Queue Explain Button
+        self.Queue_explain.setToolTip("큐는 선입선출의 구조를 띈 자료구조이다.\n먼저 들어온 값이 먼저 나간다.\n사용법 >> Enqueue에 삽입하고 싶은 숫자/문자를 입력하거나 Dequeue를 클릭한다.")
 
         #LinkedList Page
         self.LinkedList_insert_button.clicked.connect(self.Linkedlist_insert_app)
@@ -33,9 +42,6 @@ class main(QtWidgets.QMainWindow, Ui_MainWindow):
         #Stack Page
         self.Stack_insert_button.clicked.connect(self.Stack_insert_app)
         self.Stack_delete_button.clicked.connect(self.Stack_delete_app)
-
-        #Stack Explain Button
-        self.Stack_explan.setToolTip("스택은 가장 나중에 들어온 값이 먼저 나가는 자료구조이다.\nPush에 수/문자를 입력하면 스택의 가장 위에 값이 저장된다.\nPop 버튼을 클릭하면 스택의 가장 위 값이 삭제된다.\n이 스택은 최대 7개의 값을 저장할 수 있다.\n스택이 가득차면 Overflow, 비어있으면 Underflow 상태라고 함.")
             
 
         #Tree Page
@@ -65,15 +71,15 @@ class main(QtWidgets.QMainWindow, Ui_MainWindow):
             self.queue_node_1.setText(queue_list.print_queue(queue_index_num))
             if queue_list.print_queue(queue_index_num) != '':
                 self.queue_node_1.setStyleSheet("color : black;"
-                                            "background-color: #ffcf5d;"
+                                            "background-color: #00ffff;"
                                             "border: 2px solid black;")
             queue_index_num += 1
 
         if queue_index_num == 1:
-            self.queue_node_2.setText(queue_list.print_queue(queue_index_num))
+            self.queue_node_2.setText(queue_list.print_queue(queue_index_num))  
             if queue_list.print_queue(queue_index_num) != '':
                 self.queue_node_2.setStyleSheet("color : black;"
-                                            "background-color: #ff8239;"
+                                            "background-color: #aaaaff;"
                                             "border: 2px solid black;")
             queue_index_num += 1
 
@@ -81,7 +87,7 @@ class main(QtWidgets.QMainWindow, Ui_MainWindow):
             self.queue_node_3.setText(queue_list.print_queue(queue_index_num))
             if queue_list.print_queue(queue_index_num) != '':
                 self.queue_node_3.setStyleSheet("color : black;"
-                                            "background-color: #e20000;"
+                                            "background-color: #00aaff;"
                                             "border: 2px solid black;")
             queue_index_num += 1
 
@@ -89,7 +95,7 @@ class main(QtWidgets.QMainWindow, Ui_MainWindow):
             self.queue_node_4.setText(queue_list.print_queue(queue_index_num))
             if queue_list.print_queue(queue_index_num) != '':
                 self.queue_node_4.setStyleSheet("color : black;"
-                                            "background-color: #d50000;"
+                                            "background-color: #0093dd;"
                                             "border: 2px solid black;")
             queue_index_num += 1
 
@@ -97,7 +103,7 @@ class main(QtWidgets.QMainWindow, Ui_MainWindow):
             self.queue_node_5.setText(queue_list.print_queue(queue_index_num))
             if queue_list.print_queue(queue_index_num) != '':
                 self.queue_node_5.setStyleSheet("color : black;"
-                                            "background-color: #c30000;"
+                                            "background-color: #0085c7;"
                                             "border: 2px solid black;")
             queue_index_num += 1
 
@@ -105,7 +111,7 @@ class main(QtWidgets.QMainWindow, Ui_MainWindow):
             self.queue_node_6.setText(queue_list.print_queue(queue_index_num))
             if queue_list.print_queue(queue_index_num) != '':
                 self.queue_node_6.setStyleSheet("color : black;"
-                                            "background-color: #aa0000;"
+                                            "background-color: #0075af;"
                                             "border: 2px solid black;")
             queue_index_num += 1
 
@@ -113,7 +119,7 @@ class main(QtWidgets.QMainWindow, Ui_MainWindow):
             self.queue_node_7.setText(queue_list.print_queue(queue_index_num))
             if queue_list.print_queue(queue_index_num) != '':
                 self.queue_node_7.setStyleSheet("color : black;"
-                                            "background-color: #a30000;"
+                                            "background-color: #542a7e;"
                                             "border: 2px solid black;")
 
         if self.queue_node_7.text():
@@ -185,8 +191,8 @@ class main(QtWidgets.QMainWindow, Ui_MainWindow):
         if self.queue_node_1.text() == '':
             self.Queue_checking.clear()
             self.Queue_checking.setText("Queue underflow")
-            self.Queue_checking.setStyleSheet("color: white;"
-                                        "background-color: #aaff7f;")
+            self.Queue_checking.setStyleSheet("color: black;"
+                                        "background-color: #aaffff;")
             return False
 
         elif self.queue_node_1.text() != '' and self.queue_node_7.text() == '':
@@ -269,7 +275,6 @@ class main(QtWidgets.QMainWindow, Ui_MainWindow):
         Tree_delete_node = int(self.Tree_delete_Edit.text())
 
         bt.remove(Tree_delete_node)
-        re_positioning()
         GUI_tree_list = re_positioning()
         self.Tree_delete_Edit.clear()
 

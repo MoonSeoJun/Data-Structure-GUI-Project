@@ -18,6 +18,7 @@ class BinaryTree:
 
     # 값 추가하기 head가 없을 경우
     def add(self, item):
+
         array.append(item)
 
         if self.head.val is None:
@@ -48,8 +49,12 @@ class BinaryTree:
         global tree_cycle, tree_array
 
         tree_cycle = 0
+        
+        for i in range(len(tree_array)):
+            if tree_array[i] == item:
+                tree_array[i] = ''
 
-        if self.head.val is None:
+        if self.head is None:
             return False
         else:
             return self.__search_node(self.head, item)
@@ -76,96 +81,120 @@ class BinaryTree:
                     return False
 
     # 지우기!!
-
     def remove(self, item):
-        global array, tree_array
 
-        for i in tree_array:
+        for i in array:
             if i == item:
-                array.remove(item)
+                array.remove(i)
                 tree_array.remove(i)
                 tree_array.append('')
 
+        #루트노드의 존재 여부 확인
+
+        if self.head is None:
+            print("no item")
+
+        #self.head.val값과 item값이 일치하는지 확인
+
         if self.head.val == item:
+            # 1) 노드의 자식이 없는 경우.
 
-            # 자식이 없을 때 - 그냥 지운다
-            if self.head.left == None and self.head.right == None:
-                self.head.val = None
+            if self.head.left is None and self.head.right is None:
+                self.head = None
 
-            # 자식이 하나있을 때 - 부모를 지우고 자식을 할아버지한테 붙인다.
-            elif self.head.left == None and self.head.right != None:
-                self.head = self.head.right
-            elif self.head.left != None and self.head.right == None:
+            # 2) 노드의 자식이 하나인 경우
+
+            elif self.head.left is not None and self.head.right is None:
                 self.head = self.head.left
-            # 자식이 둘 있을 때 - 오른쪽 자식의 가장 왼쪽 자식으로 바꿔준다.
-            else:
-                self.head.val = self.__remove_right_and_most_left(self.head.right)
+
+            elif self.head.left is None and self.head.right is not None:
+                self.head = self.head.right
+
+            # 3) 노드의 자식이 둘인 경우
+
+            elif self.head.left is not None and self.head.right is not None:
+                self.head.val = self.most_left_val_from_right_tree(self.head.right).val
+                self.remove_most_left_val(self.head, self.head.right, self.head.val)
 
         else:
-            if self.head.val > item:
-                self.__remove(self.head, self.head.left, item)
+            #self.head.val(기준)값과 item값의 대소비교가 필요.
+            if self.head.val >= item:
+                self._remove(self.head, self.head.left, item)
             else:
-                # print(self.head.val, self.head.right.val, item)
-                self.__remove(self.head, self.head.right, item)
+                self._remove(self.head, self.head.right, item)
 
-    def __remove(self, parent, cur, item):
-        print(parent.val, cur.val, item)
-        if cur is None:
-            print('No item', item)
+    #삭제메서드2(루트노드 이후)
+
+    def _remove(self, parent, cur, item):
+
+        #cur.val(기준)값과 item값이 일치하는 경우, 일치하지않는 경우
+
         if cur.val == item:
-            # 자식이 없을 때
-
-            if cur.left == None and cur.right == None:
-                print('여기오네')
+            # 1) 노드의 자식이 없는 경우
+            if cur.left is None and cur.right is None:
                 if parent.left == cur:
                     parent.left = None
                 else:
                     parent.right = None
 
-            # 자식이 하나 있을 때 - 부모를 지우고 자식을 할아버지한테 붙인다.
-            elif cur.left == None and cur.right != None:
-                if parent.left == cur:
-                    parent.left = cur.right
-                else:
-                    parent.right = cur.right
+            # 2) 노드의 자식이 하나인 경우
 
-            elif cur.left != None and cur.right == None:
+            elif cur.left is not None and cur.right is None:
                 if parent.left == cur:
                     parent.left = cur.left
                 else:
                     parent.right = cur.left
 
-            # 자식이 둘 있을 때 - 오른쪽 자식의 가장 왼쪽 자식으로 바꿔준다.
-            if cur.left != None and cur.right != None:
-                cur.val = self.__remove_right_and_most_left(cur.right).val
-                self.__removeitem(cur, cur.right, cur.val)
+            elif cur.left is None and cur.right is not None:
+                if parent.left == cur:
+                    parent.left = cur.right
+                else:
+                    parent.right = cur.right
 
+            # 3) 노드의 자식이 둘인 경우
+
+            elif cur.left is not None and cur.right is not None:
+                cur.val = self.most_left_val_from_right_tree(cur.right).val
+                self.remove_most_left_val(cur, cur.right, cur.val)
         else:
-            if cur.val > item:
-                self.__remove(cur, cur.left, item)
+            if cur.val >= item:
+                self._remove(cur, cur.left, item)
             else:
-                self.__remove(cur, cur.right, item)
+                self._remove(cur, cur.right, item)
 
+ 
 
-    # 오른쪽 자식의 가장 왼쪽 자식 찾기
-    def __remove_right_and_most_left(self, cur):
-        if cur.left == None:
+    #삭제메서드3(오른쪽 서브트리에서 제일 왼쪽의 리프노드를 찾는 메서드)
+
+    def most_left_val_from_right_tree(self, cur):
+
+        #cur.left가 존재하냐 안하냐에 따름.
+
+        if cur.left is None:
             return cur
         else:
-            return self.__remove_right_and_most_left(cur.left)
+            return self.most_left_val_from_right_tree(cur.left)
 
-    # 자식이 둘일 때 오른쪽 자식의 가장 왼쪽 자식을 옮기고 그 자식은 지우기
-    def __removeitem(self, parent, cur, item):
+    
+
+    #삭제메서드4(찾은 제일 왼쪽의 리프노드를 제거하는 메서드)
+
+    def remove_most_left_val(self, parent, cur, item):
+
+        #cur.val값과 item값이 일치하냐 안하냐로 갈림
         if cur.val == item:
+            #parent노드의 오른쪽 왼쪽 중에서 어디에 cur노드가 속하느냐 따라에 갈림
             if parent.left == cur:
                 parent.left = None
             else:
                 parent.right = None
+
         else:
-            if cur.val > item:
-                self.__removeitem(cur, cur.left, item)
+            #cur.val(기준)값과 item값의 대소비교 필요
+            if cur.val >= item:
+                self.remove_most_left_val(cur, cur.left, item)
             else:
-                self.__removeitem(cur, cur.right, item)
+                self.remove_most_left_val(cur, cur.right, item)
 
     
     # 순회 Traverse
@@ -198,14 +227,18 @@ class BinaryTree:
     # 정위순회 inorder 1. 왼쪽 2. 루트 3. 오른쪽
     # 오름차순 정렬할 때 | n의 시간복잡도로 정렬가능
     def inorder_traverse(self):
+        global tree_cycle
         self.inorder_list = []
+        tree_cycle = 0
         if self.head is not None:
             self.__inorder(self.head)
 
     def __inorder(self, cur):
+        global tree_cycle
         if cur.left is not None:
             self.__inorder(cur.left)
 
+        #self.inorder_list.append(cur.val)
         self.inorder_list.append(cur.val)
         # print(cur.val)
 
@@ -232,16 +265,21 @@ class BinaryTree:
 
 def re_positioning():
     global array
-
+    
     for i in array:
         bt.search(i)
 
     print(tree_array)
+    print(array)
+
     return tree_array
 
 bt = BinaryTree()
 
 tree_array = [''] * 16
+
 tree_cycle = 0
 
 array = []
+
+

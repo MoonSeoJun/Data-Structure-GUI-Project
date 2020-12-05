@@ -111,7 +111,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="LinkedList_page">
      <widget class="QPushButton" name="pushButton">
@@ -251,7 +251,7 @@
        <string>Linked List</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="LinkedList_explan">
+     <widget class="QPushButton" name="LinkedList_explain">
       <property name="geometry">
        <rect>
         <x>760</x>
@@ -469,7 +469,7 @@
        <string>Pop</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="Stack_explan">
+     <widget class="QPushButton" name="Stack_explain">
       <property name="geometry">
        <rect>
         <x>760</x>
@@ -1005,7 +1005,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QPushButton" name="Tree_explan">
+     <widget class="QPushButton" name="Tree_explain">
       <property name="geometry">
        <rect>
         <x>760</x>

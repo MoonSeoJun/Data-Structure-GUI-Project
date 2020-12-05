@@ -86,12 +86,20 @@ class BinaryTree:
 
     # 지우기!!
     def remove(self, item):
+        global delete_count
+
+        delete_count = 0
 
         for i in array:
             if i == item:
                 array.remove(i)
                 tree_array.remove(i)
                 tree_array.append('')
+            else:
+                delete_count += 1
+
+        if delete_count == len(array):
+            return False
 
         #루트노드의 존재 여부 확인
 
@@ -283,6 +291,8 @@ bt = BinaryTree()
 tree_array = [''] * 16
 
 tree_cycle = 0
+
+delete_count = 0
 
 array = []
 

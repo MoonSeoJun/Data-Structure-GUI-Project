@@ -3,10 +3,10 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from GUI_for_Data_Structure import *
-from LinkedList import *
-from Stack import *
-from Queue import *
-from BST import *
+from Data_Structure_code.LinkedList import *
+from Data_Structure_code.Stack import *
+from Data_Structure_code.Queue import *
+from Data_Structure_code.BST import *
 
 from functools import partial 
 
